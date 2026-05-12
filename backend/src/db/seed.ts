@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { db, contentTable, quizzesTable, quizQuestionsTable, newsTable, forumPostsTable, usersTable } from "./index";
+import { db, contentTable, quizzesTable, quizQuestionsTable, newsTable, forumPostsTable, usersTable } from "./index.js";
 import crypto from "crypto";
 
 function hash(pw: string) {
