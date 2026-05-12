@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import type {
-  ToastActiveAction,
+  ToastActionElement,
   ToastProps,
 } from "@/components/ui/toast"
 
@@ -12,7 +12,7 @@ type ToasterToast = ToastProps & {
   id: string
   title?: React.ReactNode
   description?: React.ReactNode
-  action?: ToastActiveAction
+  action?: ToastActionElement
 }
 
 const actionTypes = {

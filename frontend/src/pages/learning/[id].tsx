@@ -11,7 +11,7 @@ export default function ContentDetail({ params }: { params?: { id: string } }) {
   const [, matchParams] = useRoute("/learn/:id");
   const id = Number(params?.id || matchParams?.id);
   
-  const { data: content, isLoading, error } = useGetContent(id, { query: { enabled: !!id } });
+  const { data: content, isLoading, error } = useGetContent(id);
 
   if (isLoading) {
     return (
