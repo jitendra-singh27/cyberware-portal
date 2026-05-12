@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+*.env.local
+.DS_Store
+*.log
+drizzle/
+*_build_errors.txt
+*_build_errors_v2.txt
