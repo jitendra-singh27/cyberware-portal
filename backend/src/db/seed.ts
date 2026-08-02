@@ -6,7 +6,7 @@ function hash(pw: string) {
   return crypto.createHash("sha256").update(pw + "cybersecure_salt_2025").digest("hex");
 }
 
-async function seed() {
+export async function seed() {
   console.log("Seeding database...");
 
   const existing = await db.select().from(usersTable).limit(1);
@@ -17,7 +17,7 @@ async function seed() {
 
   await db.insert(usersTable).values([
     { name: "Admin User", email: "admin@cyberaware.com", password: hash("admin1234"), role: "admin" },
-    { name: "Jitendra Singh Chouhan", email: "jitendrasinghchouhan2704@gmail.com", password: hash("password123"), role: "user" },
+    { name: "Jit", email: "jit@gmail.com", password: hash("password123"), role: "user" },
   ]);
 
   await db.insert(contentTable).values([
@@ -152,4 +152,12 @@ async function seed() {
   console.log("✅ Database seeded successfully!");
 }
 
-seed().catch(console.error).finally(() => process.exit());
+const isMain = process.argv[1] && (
+  process.argv[1].endsWith("seed.ts") || 
+  process.argv[1].endsWith("seed.js") || 
+  process.argv[1].endsWith("seed")
+);
+
+if (isMain) {
+  seed().catch(console.error).finally(() => process.exit());
+}
